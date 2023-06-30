@@ -1,0 +1,3 @@
+/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/CMakeFiles/CompGrafica_FreeCam3D.dir
+/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/CMakeFiles/rebuild_cache.dir
