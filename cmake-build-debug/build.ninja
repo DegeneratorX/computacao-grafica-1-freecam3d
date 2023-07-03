@@ -47,15 +47,14 @@ cmake_ninja_workdir = /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeC
 #############################################
 # Order-only phony target for CompGrafica_FreeCam3D
 
-build cmake_object_order_depends_target_CompGrafica_FreeCam3D: phony || CMakeFiles/CompGrafica_FreeCam3D.dir
+build cmake_object_order_depends_target_CompGrafica_FreeCam3D: phony || cmake_object_order_depends_target_glfw
 
 build CMakeFiles/CompGrafica_FreeCam3D.dir/main.cpp.o: CXX_COMPILER__CompGrafica_FreeCam3D_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/main.cpp || cmake_object_order_depends_target_CompGrafica_FreeCam3D
   DEP_FILE = CMakeFiles/CompGrafica_FreeCam3D.dir/main.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include
   OBJECT_DIR = CMakeFiles/CompGrafica_FreeCam3D.dir
   OBJECT_FILE_DIR = CMakeFiles/CompGrafica_FreeCam3D.dir
-  TARGET_COMPILE_PDB = CMakeFiles/CompGrafica_FreeCam3D.dir/
-  TARGET_PDB = CompGrafica_FreeCam3D.pdb
 
 
 # =============================================================================
@@ -65,14 +64,14 @@ build CMakeFiles/CompGrafica_FreeCam3D.dir/main.cpp.o: CXX_COMPILER__CompGrafica
 #############################################
 # Link the executable CompGrafica_FreeCam3D
 
-build CompGrafica_FreeCam3D: CXX_EXECUTABLE_LINKER__CompGrafica_FreeCam3D_Debug CMakeFiles/CompGrafica_FreeCam3D.dir/main.cpp.o
+build CompGrafica_FreeCam3D: CXX_EXECUTABLE_LINKER__CompGrafica_FreeCam3D_Debug CMakeFiles/CompGrafica_FreeCam3D.dir/main.cpp.o | glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/librt.a /usr/lib/x86_64-linux-gnu/libm.so || glfw/src/libglfw3.a
   FLAGS = -g
+  LINK_LIBRARIES = glfw/src/libglfw3.a  /usr/lib/x86_64-linux-gnu/libGLEW.so  /usr/lib/x86_64-linux-gnu/librt.a  -lm  -ldl
   OBJECT_DIR = CMakeFiles/CompGrafica_FreeCam3D.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/CompGrafica_FreeCam3D.dir/
   TARGET_FILE = CompGrafica_FreeCam3D
-  TARGET_PDB = CompGrafica_FreeCam3D.pdb
+  TARGET_PDB = CompGrafica_FreeCam3D.dbg
 
 
 #############################################
@@ -97,8 +96,434 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for uninstall
+
+build glfw/uninstall: phony glfw/CMakeFiles/uninstall
+
+
+#############################################
+# Utility command for edit_cache
+
+build glfw/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build glfw/edit_cache: phony glfw/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glfw/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw && /snap/clion/241/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D -B/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glfw/rebuild_cache: phony glfw/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glfw/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glfw/CMakeFiles/install.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glfw/install: phony glfw/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glfw/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glfw/install/local: phony glfw/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glfw/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glfw/install/strip: phony glfw/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for glfw/CMakeFiles/uninstall
+
+build glfw/CMakeFiles/uninstall | ${cmake_ninja_workdir}glfw/CMakeFiles/uninstall: CUSTOM_COMMAND
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -P /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/cmake_uninstall.cmake
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Order-only phony target for glfw
+
+build cmake_object_order_depends_target_glfw: phony || glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/context.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/context.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/init.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/init.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/input.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/input.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/input.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/monitor.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/monitor.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/platform.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/platform.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/platform.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/vulkan.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/vulkan.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/window.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/window.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/egl_context.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/egl_context.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_init.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/null_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/null_init.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/null_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_window.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/null_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/null_window.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/null_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/posix_module.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/posix_module.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/posix_module.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/posix_time.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/posix_time.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/posix_time.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/posix_thread.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/x11_init.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/x11_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/x11_init.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/x11_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/x11_window.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/x11_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/x11_window.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/xkb_unicode.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/glx_context.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/glx_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/glx_context.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/linux_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o: C_COMPILER__glfw_Debug /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/posix_poll.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o.d
+  FLAGS = -g -fPIC -fdiagnostics-color=always -Wall -std=c99
+  INCLUDES = -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/include -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src -I/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Link the static library glfw/src/libglfw3.a
+
+build glfw/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug glfw/src/CMakeFiles/glfw.dir/context.c.o glfw/src/CMakeFiles/glfw.dir/init.c.o glfw/src/CMakeFiles/glfw.dir/input.c.o glfw/src/CMakeFiles/glfw.dir/monitor.c.o glfw/src/CMakeFiles/glfw.dir/platform.c.o glfw/src/CMakeFiles/glfw.dir/vulkan.c.o glfw/src/CMakeFiles/glfw.dir/window.c.o glfw/src/CMakeFiles/glfw.dir/egl_context.c.o glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o glfw/src/CMakeFiles/glfw.dir/null_init.c.o glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o glfw/src/CMakeFiles/glfw.dir/null_window.c.o glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o glfw/src/CMakeFiles/glfw.dir/posix_module.c.o glfw/src/CMakeFiles/glfw.dir/posix_time.c.o glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o glfw/src/CMakeFiles/glfw.dir/x11_init.c.o glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o glfw/src/CMakeFiles/glfw.dir/x11_window.c.o glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o glfw/src/CMakeFiles/glfw.dir/glx_context.c.o glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = glfw/src/libglfw3.a
+  TARGET_PDB = glfw3.a.dbg
+
+
+#############################################
+# Utility command for update_mappings
+
+build glfw/src/update_mappings: phony glfw/src/CMakeFiles/update_mappings
+
+
+#############################################
+# Utility command for edit_cache
+
+build glfw/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build glfw/src/edit_cache: phony glfw/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glfw/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src && /snap/clion/241/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D -B/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glfw/src/rebuild_cache: phony glfw/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glfw/src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glfw/src/CMakeFiles/install.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glfw/src/install: phony glfw/src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glfw/src/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glfw/src/install/local: phony glfw/src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glfw/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glfw/src/install/strip: phony glfw/src/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for glfw/src/CMakeFiles/update_mappings
+
+build glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}glfw/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
+  COMMAND = cd /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -P /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+  DESC = Updating gamepad mappings from upstream repository
+
 # =============================================================================
 # Target aliases.
+
+build glfw: phony glfw/src/libglfw3.a
+
+build libglfw3.a: phony glfw/src/libglfw3.a
+
+build uninstall: phony glfw/uninstall
+
+build update_mappings: phony glfw/src/update_mappings
 
 # =============================================================================
 # Folder targets.
@@ -108,7 +533,21 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug
 
-build all: phony CompGrafica_FreeCam3D
+build all: phony CompGrafica_FreeCam3D glfw/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw
+
+build glfw/all: phony glfw/src/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/src
+
+build glfw/src/all: phony glfw/src/libglfw3.a
 
 # =============================================================================
 # Built-in targets
@@ -117,14 +556,14 @@ build all: phony CompGrafica_FreeCam3D
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/CMakeLists.txt /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCCompiler.cmake.in /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompiler.cmake.in /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCompilerIdDetection.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerId.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineSystem.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeFindBinUtils.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystem.cmake.in /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCXXCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCompilerCommon.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Tasking-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Internal/FeatureTesting.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/CMakeLists.txt /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMake/cmake_uninstall.cmake.in /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMake/glfw3.pc.in /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMake/glfw3Config.cmake.in /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMakeLists.txt /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/CMakeLists.txt /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDependentOption.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakePackageConfigHelpers.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckFunctionExists.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckIncludeFile.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckLibraryExists.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindDoxygen.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindFontconfig.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindFreetype.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindGLEW.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPkgConfig.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindThreads.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindX11.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/GNUInstallDirs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/SelectLibraryConfigurations.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/CMakeLists.txt /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCCompiler.cmake.in /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompiler.cmake.in /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCompilerIdDetection.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerId.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineSystem.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeFindBinUtils.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystem.cmake.in /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCXXCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCompilerCommon.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Tasking-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Internal/FeatureTesting.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
+build /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/CMakeLists.txt /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMake/cmake_uninstall.cmake.in /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMake/glfw3.pc.in /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMake/glfw3Config.cmake.in /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/CMakeLists.txt /home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/glfw/src/CMakeLists.txt /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDependentOption.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakePackageConfigHelpers.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckFunctionExists.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckIncludeFile.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckLibraryExists.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindDoxygen.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindFontconfig.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindFreetype.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindGLEW.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPkgConfig.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindThreads.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindX11.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/GNUInstallDirs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/SelectLibraryConfigurations.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
 
 
 #############################################
