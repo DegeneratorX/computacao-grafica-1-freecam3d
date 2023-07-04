@@ -1,22 +1,22 @@
 
-if (NOT EXISTS "/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/install_manifest.txt\"")
+if (NOT EXISTS "C:/Users/Diassis 2022/Documents/PycharmProjects/computacao-grafica-1-freecam/cmake-build-debug/glfw/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/Diassis 2022/Documents/PycharmProjects/computacao-grafica-1-freecam/cmake-build-debug/glfw/install_manifest.txt\"")
 endif()
 
-file(READ "/home/arida01/Documentos/Victor/Projetos/CompGrafica-FreeCam3D/cmake-build-debug/glfw/install_manifest.txt" files)
+file(READ "C:/Users/Diassis 2022/Documents/PycharmProjects/computacao-grafica-1-freecam/cmake-build-debug/glfw/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})
   message(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
   if (EXISTS "$ENV{DESTDIR}${file}")
-    exec_program("/snap/clion/241/bin/cmake/linux/x64/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+    exec_program("C:/Program Files/JetBrains/CLion 2022.2.4/bin/cmake/win/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
                  OUTPUT_VARIABLE rm_out
                  RETURN_VALUE rm_retval)
     if (NOT "${rm_retval}" STREQUAL 0)
       MESSAGE(FATAL_ERROR "Problem when removing \"$ENV{DESTDIR}${file}\"")
     endif()
   elseif (IS_SYMLINK "$ENV{DESTDIR}${file}")
-    EXEC_PROGRAM("/snap/clion/241/bin/cmake/linux/x64/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+    EXEC_PROGRAM("C:/Program Files/JetBrains/CLion 2022.2.4/bin/cmake/win/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
                  OUTPUT_VARIABLE rm_out
                  RETURN_VALUE rm_retval)
     if (NOT "${rm_retval}" STREQUAL 0)
