@@ -2,6 +2,26 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+const GLchar* vertexShaderSource = R"(
+    #version 330 core
+    layout (location = 0) in vec2 position;
+
+    void main()
+    {
+        gl_Position = vec4(position.x, position.y, 0.0, 1.0);
+    }
+)";
+
+const GLchar* fragmentShaderSource = R"(
+    #version 330 core
+    out vec4 fragColor;
+
+    void main()
+    {
+        fragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }
+)";
+
 int main(){
     GLFWwindow* window;
 
@@ -34,13 +54,11 @@ int main(){
         return -1;
     }
 
-    glClearColor(0.65f, 0.9f, 1.0f, 1.0f);
-
     // Loop do "jogo"
     while (!glfwWindowShouldClose(window))
     {
         // IMPLEMENTAR AQUI
-        // ...
+        // {
 
         // Reseta a tela (fill)
         glClear(GL_COLOR_BUFFER_BIT);
