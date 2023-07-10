@@ -41,7 +41,7 @@ int main(){
 
     // Inicializa o Glad
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        printf("Glad não inicializou");
+        std::cout << "Glad não inicializou" << std::endl;
         glfwTerminate();
         return -1;
     }
