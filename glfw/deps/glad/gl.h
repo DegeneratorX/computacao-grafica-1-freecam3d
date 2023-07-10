@@ -33,19 +33,19 @@
 #pragma clang diagnostic ignored "-Wreserved-id-macro"
 #endif
 #ifdef __gl_h_
-  #error OpenGL (gl.h) header already included (API: gl), remove previous include!
+  #error OpenGL (gl.h) header already included (API: gl), remove previous includes!
 #endif
 #define __gl_h_ 1
 #ifdef __gl3_h_
-  #error OpenGL (gl3.h) header already included (API: gl), remove previous include!
+  #error OpenGL (gl3.h) header already included (API: gl), remove previous includes!
 #endif
 #define __gl3_h_ 1
 #ifdef __glext_h_
-  #error OpenGL (glext.h) header already included (API: gl), remove previous include!
+  #error OpenGL (glext.h) header already included (API: gl), remove previous includes!
 #endif
 #define __glext_h_ 1
 #ifdef __gl3ext_h_
-  #error OpenGL (gl3ext.h) header already included (API: gl), remove previous include!
+  #error OpenGL (gl3ext.h) header already included (API: gl), remove previous includes!
 #endif
 #define __gl3ext_h_ 1
 #ifdef __clang__
@@ -98,7 +98,7 @@ extern "C" {
   #endif
 
   #ifdef GLAD_INTERNAL_HAVE_WINAPIFAMILY
-    #include <winapifamily.h>
+    #includes <winapifamily.h>
     #if !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
       #define GLAD_PLATFORM_UWP 1
     #endif
@@ -1524,7 +1524,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
  *    http://www.khronos.org/registry/implementers_guide.pdf
  *
  * This file should be included as
- *        #include <KHR/khrplatform.h>
+ *        #includes <KHR/khrplatform.h>
  * by Khronos client API header files that use its types and defines.
  *
  * The types in khrplatform.h should only be used to define API-specific types.
@@ -1640,7 +1640,7 @@ typedef uint64_t                khronos_uint64_t;
 /*
  * Using <inttypes.h>
  */
-#include <inttypes.h>
+#includes <inttypes.h>
 typedef int32_t                 khronos_int32_t;
 typedef uint32_t                khronos_uint32_t;
 typedef int64_t                 khronos_int64_t;
@@ -1692,7 +1692,7 @@ typedef unsigned int            khronos_uint32_t;
 /*
  * Generic fallback
  */
-#include <stdint.h>
+#includes <stdint.h>
 typedef int32_t                 khronos_int32_t;
 typedef uint32_t                khronos_uint32_t;
 typedef int64_t                 khronos_int64_t;
@@ -4191,9 +4191,9 @@ GLAD_API_CALL int gladLoadGL( GLADloadfunc load);
 
 /* Source */
 #ifdef GLAD_GL_IMPLEMENTATION
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#includes <stdio.h>
+#includes <stdlib.h>
+#includes <string.h>
 
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
