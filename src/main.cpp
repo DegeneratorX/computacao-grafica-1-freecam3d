@@ -46,7 +46,7 @@ int main(){
         return -1;
     }
 
-    Shader shaderFreeCam("shader.vs", "shader.fs");
+    Shader shaderFreeCam("../src/shader.vs", "../src/shader.fs");
 
     // Declaração de objetos
     float vertices[] = {
@@ -87,7 +87,7 @@ int main(){
     glBindVertexArray(0);
 
     // Modo Wireframe (para visualizar os triângulos)
-    glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+    // glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
     // Loop do "jogo"
     while (!glfwWindowShouldClose(window))
