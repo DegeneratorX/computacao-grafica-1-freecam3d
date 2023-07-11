@@ -149,8 +149,7 @@ int main(){
 
     // Modo Wireframe (para visualizar os triângulos)
     // glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-
-    //glm::mat4 proj = glm::perspective(glm::radians(45.0f), (float)width / (float)height, 0.1f, 100.0f);
+    auto matrizTransformacao = Transformacoes::transladarObjeto<glm::mat4>(0.2, 0.2, 0.0);
 
     // Loop do "jogo"
     while (!glfwWindowShouldClose(window))
