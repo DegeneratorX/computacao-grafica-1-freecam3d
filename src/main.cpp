@@ -77,44 +77,39 @@ bool initGlad(){
 
 int main(){
     // Verifica a inicialização do GLFL (OpenGL)
+    //------------------------------------------
     if (!initGLFW()){return -1;}
 
     // Cria a janela com viewport configurada
+    //---------------------------------------
     GLFWwindow* window = getWindow();
 
     // Verifica a inicialização do glad (OpenGL)
+    //-----------------------------------------
     if (!initGlad()){return -1;}
 
     Shader shaderFreeCam("../src/shader.vs", "../src/shader.fs");
 
     // Declaração de objetos
+    //----------------------
     float vertices[] = {
-            // posições dos vertices (coluna 0 a 2), cores (coluna 3 a 5) e coordenadas de textura (colunas 6 e 7)
-            0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // top right
-            0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // bottom right
-            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom left
-            -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f // top left
+            // posições dos vertices (coluna 0 a 2) e coordenadas de textura (colunas 3 e 4)
+            0.5f, 0.5f, 0.0f, 1.0f, 1.0f, // top right
+            0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // bottom right
+            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
+            -0.5f, 0.5f, 0.0f, 0.0f, 1.0f // top left
     };
     unsigned int indices[] = { // Isso aqui serve para não repetirmos vértices ao desenhar 2 triângulos (para formar o quadrado)
             0, 1, 3, // Primeiro triângulo
             1, 2, 3 // Segundo triângulo
     };
 
-    unsigned int textura; // Toda textura é referenciada pelo ID
-    glGenTextures(1, &textura); // input de quantas texturas queremos para gerar e guardar em um unsigned int array
-    glBindTexture(GL_TEXTURE_2D, textura); // bind de textura
-
-    // Parâmetros para filtros de textura
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
     // VBO = Vertex Buffer Objects — É uma variável que guarda uma enorme quantidade de vértices na memória da GPU.
     // VAO = Vertex Array Object — É uma variável que encapsula os vértices por uso de referência (ponteiro).
     // EBO = Element Buffer Objects — Serve para tratar objetos complexos como quadrado para dividir em 2 triângulos
-    // Aqui estou inicializando o VBO e o VAO. Precisa bindar o VAO primeiro, e os métodos precisam estar
+    // Aqui estou inicializando o VBO, o VAO e o EBO. Precisa bindar o VAO primeiro, e os métodos precisam estar
     // nessa ordem.
+    //-------------------------------------------------------------------------------------------------------------
     unsigned int VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -128,6 +123,7 @@ int main(){
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     // Leitura dos dados no ponteiro para o vertex buffer
+    //---------------------------------------------------
     // Atributos de posição
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
@@ -139,6 +135,18 @@ int main(){
     glEnableVertexAttribArray(2);
 
     // Carrega e gera a textura (guarda a textura na variável data)
+    //-------------------------------------------------------------
+    unsigned int textura; // Toda textura é referenciada pelo ID
+
+    glGenTextures(1, &textura); // input de quantas texturas queremos para gerar e guardar em um unsigned int array
+    glBindTexture(GL_TEXTURE_2D, textura); // bind de textura
+
+    // Parâmetros para filtros de textura
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
     int texLargura, texAltura, canaisCores;
     unsigned char* data = stbi_load("../resources/textures/whitesquaredtexture.jpg", &texLargura, &texAltura, &canaisCores, 0);
     checkTextureErrors(data, texLargura, texAltura);
