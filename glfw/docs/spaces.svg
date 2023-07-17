@@ -28,7 +28,7 @@
          id="path3888"
          style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
          d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
-         transform="scale(1.1) rotate(180) translate(1,0)" />
+         transform="escala(1.1) rotate(180) translacao(1,0)" />
     </marker>
   </defs>
   <sodipodi:namedview
@@ -72,7 +72,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-12.627039,-339.86462)">
+     transform="translacao(-12.627039,-339.86462)">
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3,3;stroke-dashoffset:0"
        id="rect2985"
@@ -733,7 +733,7 @@
        id="path3861"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
-       transform="translate(12.627039,339.86462)" />
+       transform="translacao(12.627039,339.86462)" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"

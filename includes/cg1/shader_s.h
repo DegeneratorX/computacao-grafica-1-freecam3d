@@ -105,7 +105,7 @@ public:
 private:
     // Funções para checar erros de linkagem ou compilação nos shaders
     // ------------------------------------------------------------------------
-    void checkCompileErrors(unsigned int shader, std::string type)
+    void errosCompilacaoShader(unsigned int shader, std::string type)
     {
         int success;
         char infoLog[1024];

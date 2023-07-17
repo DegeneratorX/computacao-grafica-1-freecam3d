@@ -130,8 +130,8 @@ void _glfwInputFramebufferSize(_GLFWwindow* window, int width, int height)
         window->callbacks.fbsize((GLFWwindow*) window, width, height);
 }
 
-// Notifies shared code that a window content scale has changed
-// The scale is specified as the ratio between the current and default DPI
+// Notifies shared code that a window content escala has changed
+// The escala is specified as the ratio between the current and default DPI
 //
 void _glfwInputWindowContentScale(_GLFWwindow* window, float xscale, float yscale)
 {

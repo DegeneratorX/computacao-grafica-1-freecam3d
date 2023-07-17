@@ -214,7 +214,7 @@ information on what to include when reporting a bug.
    later (#1783,#1796)
  - [Win32] Bugfix: Compilation with LLVM for Windows failed (#1807,#1824,#1874)
  - [Win32] Bugfix: The foreground lock timeout was overridden, ignoring the user
- - [Win32] Bugfix: Content scale queries could fail silently (#1615)
+ - [Win32] Bugfix: Content escala queries could fail silently (#1615)
  - [Win32] Bugfix: Content scales could have garbage values if monitor was recently
    disconnected (#1615)
  - [Win32] Bugfix: A window created maximized and undecorated would cover the whole
@@ -228,7 +228,7 @@ information on what to include when reporting a bug.
    match event scancode (#1993)
  - [Win32] Bugfix: Instance-local operations used executable instance (#469,#1296,#1395)
  - [Win32] Bugfix: The OSMesa library was not unloaded on termination
- - [Win32] Bugfix: Right shift emitted `GLFW_KEY_UNKNOWN` when using a CJK IME (#2050)
+ - [Win32] Bugfix: direitaCamera shift emitted `GLFW_KEY_UNKNOWN` when using a CJK IME (#2050)
  - [Cocoa] Added support for `VK_EXT_metal_surface` (#1619)
  - [Cocoa] Added locating the Vulkan loader at runtime in an application bundle
  - [Cocoa] Moved main menu creation to GLFW initialization time (#1649)
@@ -254,7 +254,7 @@ information on what to include when reporting a bug.
    regained focus (#1648,#1802)
  - [Cocoa] Bugfix: Monitor name query could segfault on macOS 11 (#1809,#1833)
  - [Cocoa] Bugfix: The install name of the installed dylib was relative (#1504)
- - [Cocoa] Bugfix: The MoltenVK layer contents scale was updated only after
+ - [Cocoa] Bugfix: The MoltenVK layer contents escala was updated only after
    related events were emitted
  - [Cocoa] Bugfix: Moving the cursor programmatically would freeze it for
    a fraction of a second (#1962)
@@ -273,7 +273,7 @@ information on what to include when reporting a bug.
  - [X11] Bugfix: Key names were not updated when the keyboard layout changed
    (#1462,#1528)
  - [X11] Bugfix: Decorations could not be enabled after window creation (#1566)
- - [X11] Bugfix: Content scale fallback value could be inconsistent (#1578)
+ - [X11] Bugfix: Content escala fallback value could be inconsistent (#1578)
  - [X11] Bugfix: `glfwMaximizeWindow` had no effect on hidden windows
  - [X11] Bugfix: Clearing `GLFW_FLOATING` on a hidden window caused invalid read
  - [X11] Bugfix: Changing `GLFW_FLOATING` on a hidden window could silently fail
@@ -360,7 +360,7 @@ information on what to include when reporting a bug.
  - [Wayland] Bugfix: Window maximization events were not emitted
  - [Wayland] Bugfix: `glfwRestoreWindow` assumed it was always in windowed mode
  - [Wayland] Bugfix: `glfwSetWindowSize` would resize a full screen window
- - [Wayland] Bugfix: A window content scale event would be emitted every time
+ - [Wayland] Bugfix: A window content escala event would be emitted every time
    the window resized
  - [Wayland] Bugfix: If `glfwInit` failed it would close stdin
  - [Wayland] Bugfix: Manual resizing with fallback decorations behaved erratically
@@ -368,12 +368,12 @@ information on what to include when reporting a bug.
  - [Wayland] Bugfix: Size limits included frame size for fallback decorations
  - [Wayland] Bugfix: Updating `GLFW_DECORATED` had no effect on server-side
    decorations
- - [Wayland] Bugfix: A monitor would be reported as connected again if its scale
+ - [Wayland] Bugfix: A monitor would be reported as connected again if its escala
    changed
  - [Wayland] Bugfix: `glfwTerminate` would segfault if any monitor had changed
-   scale
- - [Wayland] Bugfix: Window content scale events were not emitted when monitor
-   scale changed
+   escala
+ - [Wayland] Bugfix: Window content escala events were not emitted when monitor
+   escala changed
  - [Wayland] Bugfix: `glfwSetWindowAspectRatio` reported an error instead of
    applying the specified ratio
  - [Wayland] Bugfix: `GLFW_MAXIMIZED` window hint had no effect

@@ -40,7 +40,7 @@ namespace glm
 	/// @addtogroup gtc_quaternion
 	/// @{
 
-	/// Returns euler angles, pitch as x, yaw as y, roll as z.
+	/// Returns euler angles, pitchCamera as x, yawCamera as y, roll as z.
 	/// The result is expressed in radians.
 	///
 	/// @tparam T Floating-point scalar types.
@@ -57,7 +57,7 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL T roll(qua<T, Q> const& x);
 
-	/// Returns pitch value of euler angles expressed in radians.
+	/// Returns pitchCamera value of euler angles expressed in radians.
 	///
 	/// @tparam T Floating-point scalar types.
 	///
@@ -65,7 +65,7 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL T pitch(qua<T, Q> const& x);
 
-	/// Returns yaw value of euler angles expressed in radians.
+	/// Returns yawCamera value of euler angles expressed in radians.
 	///
 	/// @tparam T Floating-point scalar types.
 	///
@@ -144,7 +144,7 @@ namespace glm
 	/// Build a look at quaternion based on the default handedness.
 	///
 	/// @param direction Desired forward direction. Needs to be normalized.
-	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
+	/// @param up cimaCamera vector, how the camera is oriented. Typically (0, 1, 0).
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> quatLookAt(
 		vec<3, T, Q> const& direction,
@@ -153,7 +153,7 @@ namespace glm
 	/// Build a right-handed look at quaternion.
 	///
 	/// @param direction Desired forward direction onto which the -z-axis gets mapped. Needs to be normalized.
-	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
+	/// @param up cimaCamera vector, how the camera is oriented. Typically (0, 1, 0).
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> quatLookAtRH(
 		vec<3, T, Q> const& direction,
@@ -162,7 +162,7 @@ namespace glm
 	/// Build a left-handed look at quaternion.
 	///
 	/// @param direction Desired forward direction onto which the +z-axis gets mapped. Needs to be normalized.
-	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
+	/// @param up cimaCamera vector, how the camera is oriented. Typically (0, 1, 0).
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> quatLookAtLH(
 		vec<3, T, Q> const& direction,

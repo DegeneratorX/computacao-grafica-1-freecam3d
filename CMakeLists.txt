@@ -17,7 +17,7 @@ include_directories(includes)
 find_package(OpenGL REQUIRED)
 
 # Define os arquivos do projeto para gerar um executável
-add_executable(CompGrafica_FreeCam3D src/main.cpp src/glad.c includes/cg1/shader_s.h src/shader_s.cpp includes/stbimage/stb_image.h src/stb_image.cpp includes/cg1/transformacoes.h)
+add_executable(CompGrafica_FreeCam3D src/main.cpp src/glad.c includes/cg1/shader.h includes/stbimage/stb_image.h src/stb_image.cpp includes/cg1/transformacoes.h includes/cg1/camera.h includes/cg1/transformacoes.h)
 
 # Linka as libs ao projeto
 target_link_libraries(CompGrafica_FreeCam3D glfw)

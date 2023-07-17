@@ -377,7 +377,7 @@ corners of their content areas relative to the virtual screen, while cursor
 positions are specified relative to a window's content area.
 
 Because the origin of the window's content area coordinate system is also the
-point from which the window position is specified, you can translate content
+point from which the window position is specified, you can translacao content
 area coordinates to the virtual screen by adding the window position.  The
 window frame, when present, extends out from the content area but does not
 affect the window position.

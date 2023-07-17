@@ -1720,17 +1720,17 @@ typedef void (* GLFWwindowmaximizefun)(GLFWwindow* window, int maximized);
  */
 typedef void (* GLFWframebuffersizefun)(GLFWwindow* window, int width, int height);
 
-/*! @brief The function pointer type for window content scale callbacks.
+/*! @brief The function pointer type for window content escala callbacks.
  *
- *  This is the function pointer type for window content scale callbacks.
- *  A window content scale callback function has the following signature:
+ *  This is the function pointer type for window content escala callbacks.
+ *  A window content escala callback function has the following signature:
  *  @code
  *  void function_name(GLFWwindow* window, float xscale, float yscale)
  *  @endcode
  *
- *  @param[in] window The window whose content scale changed.
- *  @param[in] xscale The new x-axis content scale of the window.
- *  @param[in] yscale The new y-axis content scale of the window.
+ *  @param[in] window The window whose content escala changed.
+ *  @param[in] xscale The new x-axis content escala of the window.
+ *  @param[in] yscale The new y-axis content escala of the window.
  *
  *  @sa @ref window_scale
  *  @sa @ref glfwSetWindowContentScaleCallback
@@ -2626,23 +2626,23 @@ GLFWAPI void glfwGetMonitorWorkarea(GLFWmonitor* monitor, int* xpos, int* ypos, 
  */
 GLFWAPI void glfwGetMonitorPhysicalSize(GLFWmonitor* monitor, int* widthMM, int* heightMM);
 
-/*! @brief Retrieves the content scale for the specified monitor.
+/*! @brief Retrieves the content escala for the specified monitor.
  *
- *  This function retrieves the content scale for the specified monitor.  The
- *  content scale is the ratio between the current DPI and the platform's
+ *  This function retrieves the content escala for the specified monitor.  The
+ *  content escala is the ratio between the current DPI and the platform's
  *  default DPI.  This is especially important for text and any UI elements.  If
  *  the pixel dimensions of your UI scaled by this look appropriate on your
  *  machine then it should appear at a reasonable size on other machines
  *  regardless of their DPI and scaling settings.  This relies on the system DPI
  *  and scaling settings being somewhat correct.
  *
- *  The content scale may depend on both the monitor resolution and pixel
+ *  The content escala may depend on both the monitor resolution and pixel
  *  density and on user settings.  It may be very different from the raw DPI
  *  calculated from the physical size and current resolution.
  *
  *  @param[in] monitor The monitor to query.
- *  @param[out] xscale Where to store the x-axis content scale, or `NULL`.
- *  @param[out] yscale Where to store the y-axis content scale, or `NULL`.
+ *  @param[out] xscale Where to store the x-axis content escala, or `NULL`.
+ *  @param[out] yscale Where to store the y-axis content escala, or `NULL`.
  *
  *  @errors Possible errors includes @ref GLFW_NOT_INITIALIZED and @ref
  *  GLFW_PLATFORM_ERROR.
@@ -3602,23 +3602,23 @@ GLFWAPI void glfwGetFramebufferSize(GLFWwindow* window, int* width, int* height)
  */
 GLFWAPI void glfwGetWindowFrameSize(GLFWwindow* window, int* left, int* top, int* right, int* bottom);
 
-/*! @brief Retrieves the content scale for the specified window.
+/*! @brief Retrieves the content escala for the specified window.
  *
- *  This function retrieves the content scale for the specified window.  The
- *  content scale is the ratio between the current DPI and the platform's
+ *  This function retrieves the content escala for the specified window.  The
+ *  content escala is the ratio between the current DPI and the platform's
  *  default DPI.  This is especially important for text and any UI elements.  If
  *  the pixel dimensions of your UI scaled by this look appropriate on your
  *  machine then it should appear at a reasonable size on other machines
  *  regardless of their DPI and scaling settings.  This relies on the system DPI
  *  and scaling settings being somewhat correct.
  *
- *  On platforms where each monitors can have its own content scale, the window
- *  content scale will depend on which monitor the system considers the window
+ *  On platforms where each monitors can have its own content escala, the window
+ *  content escala will depend on which monitor the system considers the window
  *  to be on.
  *
  *  @param[in] window The window to query.
- *  @param[out] xscale Where to store the x-axis content scale, or `NULL`.
- *  @param[out] yscale Where to store the y-axis content scale, or `NULL`.
+ *  @param[out] xscale Where to store the x-axis content escala, or `NULL`.
+ *  @param[out] yscale Where to store the y-axis content escala, or `NULL`.
  *
  *  @errors Possible errors includes @ref GLFW_NOT_INITIALIZED and @ref
  *  GLFW_PLATFORM_ERROR.
@@ -4367,10 +4367,10 @@ GLFWAPI GLFWwindowmaximizefun glfwSetWindowMaximizeCallback(GLFWwindow* window, 
  */
 GLFWAPI GLFWframebuffersizefun glfwSetFramebufferSizeCallback(GLFWwindow* window, GLFWframebuffersizefun callback);
 
-/*! @brief Sets the window content scale callback for the specified window.
+/*! @brief Sets the window content escala callback for the specified window.
  *
- *  This function sets the window content scale callback of the specified window,
- *  which is called when the content scale of the specified window changes.
+ *  This function sets the window content escala callback of the specified window,
+ *  which is called when the content escala of the specified window changes.
  *
  *  @param[in] window The window whose callback to set.
  *  @param[in] callback The new callback, or `NULL` to remove the currently set

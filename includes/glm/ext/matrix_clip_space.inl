@@ -432,7 +432,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovZO(T fov, T width, T height, T zNear, T zFar)
 	{
 #		if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
-			return perspectiveFovLH_ZO(fov, width, height, zNear, zFar);
+			return perspectiveFovLH_ZO(fovCamera, width, height, zNear, zFar);
 #		else
 			return perspectiveFovRH_ZO(fov, width, height, zNear, zFar);
 #		endif
@@ -442,7 +442,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovNO(T fov, T width, T height, T zNear, T zFar)
 	{
 #		if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
-			return perspectiveFovLH_NO(fov, width, height, zNear, zFar);
+			return perspectiveFovLH_NO(fovCamera, width, height, zNear, zFar);
 #		else
 			return perspectiveFovRH_NO(fov, width, height, zNear, zFar);
 #		endif
@@ -452,7 +452,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovLH(T fov, T width, T height, T zNear, T zFar)
 	{
 #		if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
-			return perspectiveFovLH_ZO(fov, width, height, zNear, zFar);
+			return perspectiveFovLH_ZO(fovCamera, width, height, zNear, zFar);
 #		else
 			return perspectiveFovLH_NO(fov, width, height, zNear, zFar);
 #		endif
@@ -462,7 +462,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovRH(T fov, T width, T height, T zNear, T zFar)
 	{
 #		if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
-			return perspectiveFovRH_ZO(fov, width, height, zNear, zFar);
+			return perspectiveFovRH_ZO(fovCamera, width, height, zNear, zFar);
 #		else
 			return perspectiveFovRH_NO(fov, width, height, zNear, zFar);
 #		endif
@@ -472,11 +472,11 @@ namespace glm
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFov(T fov, T width, T height, T zNear, T zFar)
 	{
 #		if GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_ZO
-			return perspectiveFovLH_ZO(fov, width, height, zNear, zFar);
+			return perspectiveFovLH_ZO(fovCamera, width, height, zNear, zFar);
 #		elif GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_NO
-			return perspectiveFovLH_NO(fov, width, height, zNear, zFar);
+			return perspectiveFovLH_NO(fovCamera, width, height, zNear, zFar);
 #		elif GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_ZO
-			return perspectiveFovRH_ZO(fov, width, height, zNear, zFar);
+			return perspectiveFovRH_ZO(fovCamera, width, height, zNear, zFar);
 #		elif GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_NO
 			return perspectiveFovRH_NO(fov, width, height, zNear, zFar);
 #		endif

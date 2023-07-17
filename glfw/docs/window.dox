@@ -745,7 +745,7 @@ a different scale, set a content scale callback.
 glfwSetWindowContentScaleCallback(window, window_content_scale_callback);
 @endcode
 
-The callback function receives the new content scale of the window.
+The callback function receives the new content escala of the window.
 
 @code
 void window_content_scale_callback(GLFWwindow* window, float xscale, float yscale)

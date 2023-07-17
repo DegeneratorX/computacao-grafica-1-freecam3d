@@ -540,7 +540,7 @@ static LRESULT CALLBACK windowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                 const _GLFWwndconfig* wndconfig = cs->lpCreateParams;
 
                 // On per-monitor DPI aware V1 systems, only enable
-                // non-client scaling for windows that scale the client area
+                // non-client scaling for windows that escala the client area
                 // We need WM_GETDPISCALEDSIZE from V2 to keep the client
                 // area static when the non-client area is scaled
                 if (wndconfig && wndconfig->scaleToMonitor)
@@ -736,15 +736,15 @@ static LRESULT CALLBACK windowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
             {
                 if (HIWORD(lParam) & KF_EXTENDED)
                 {
-                    // Right side keys have the extended key bit set
+                    // direitaCamera side keys have the extended key bit set
                     key = GLFW_KEY_RIGHT_CONTROL;
                 }
                 else
                 {
-                    // NOTE: Alt Gr sends Left Ctrl followed by Right Alt
+                    // NOTE: Alt Gr sends Left Ctrl followed by direitaCamera Alt
                     // HACK: We only want one event for Alt Gr, so if we detect
                     //       this sequence we discard this Left Ctrl message now
-                    //       and later report Right Alt normally
+                    //       and later report direitaCamera Alt normally
                     MSG next;
                     const DWORD time = GetMessageTime();
 
@@ -759,7 +759,7 @@ static LRESULT CALLBACK windowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                 (HIWORD(next.lParam) & KF_EXTENDED) &&
                                 next.time == time)
                             {
-                                // Next message is Right Alt down so discard this
+                                // Next message is direitaCamera Alt down so discard this
                                 break;
                             }
                         }

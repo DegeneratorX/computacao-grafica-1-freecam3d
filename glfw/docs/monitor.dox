@@ -159,7 +159,7 @@ it should appear at a reasonable size on other machines regardless of their DPI
 and scaling settings.  This relies on the system DPI and scaling settings being
 somewhat correct.
 
-The content scale may depend on both the monitor resolution and pixel density
+The content escala may depend on both the monitor resolution and pixel density
 and on user settings.  It may be very different from the raw DPI calculated from
 the physical size and current resolution.
 

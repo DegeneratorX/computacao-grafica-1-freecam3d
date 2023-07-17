@@ -50,15 +50,15 @@ namespace glm
 	/// #include <glm/glm.hpp>
 	/// #include <glm/gtc/matrix_transform.hpp>
 	/// ...
-	/// glm::mat4 m = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f));
+	/// glm::mat4 m = glm::translacao(glm::mat4(1.0f), glm::vec3(1.0f));
 	/// // m[0][0] == 1.0f, m[0][1] == 0.0f, m[0][2] == 0.0f, m[0][3] == 0.0f
 	/// // m[1][0] == 0.0f, m[1][1] == 1.0f, m[1][2] == 0.0f, m[1][3] == 0.0f
 	/// // m[2][0] == 0.0f, m[2][1] == 0.0f, m[2][2] == 1.0f, m[2][3] == 0.0f
 	/// // m[3][0] == 1.0f, m[3][1] == 1.0f, m[3][2] == 1.0f, m[3][3] == 1.0f
 	/// @endcode
 	///
-	/// @see - translate(mat<4, 4, T, Q> const& m, T x, T y, T z)
-	/// @see - translate(vec<3, T, Q> const& v)
+	/// @see - translacao(mat<4, 4, T, Q> const& m, T x, T y, T z)
+	/// @see - translacao(vec<3, T, Q> const& v)
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTranslate.xml">glTranslate man page</a>
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL mat<4, 4, T, Q> translate(
@@ -80,22 +80,22 @@ namespace glm
 	GLM_FUNC_DECL mat<4, 4, T, Q> rotate(
 		mat<4, 4, T, Q> const& m, T angle, vec<3, T, Q> const& axis);
 
-	/// Builds a scale 4 * 4 matrix created from 3 scalars.
+	/// Builds a escala 4 * 4 matrix created from 3 scalars.
 	///
-	/// @param m Input matrix multiplied by this scale matrix.
+	/// @param m Input matrix multiplied by this escala matrix.
 	/// @param v Ratio of scaling for each axis.
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
 	///
-	/// @see - scale(mat<4, 4, T, Q> const& m, T x, T y, T z)
-	/// @see - scale(vec<3, T, Q> const& v)
+	/// @see - escala(mat<4, 4, T, Q> const& m, T x, T y, T z)
+	/// @see - escala(vec<3, T, Q> const& v)
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glScale.xml">glScale man page</a>
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL mat<4, 4, T, Q> scale(
 		mat<4, 4, T, Q> const& m, vec<3, T, Q> const& v);
 
-    /// Builds a scale 4 * 4 matrix created from point referent 3 shearers.
+    /// Builds a escala 4 * 4 matrix created from point referent 3 shearers.
     ///
     /// @param m Input matrix multiplied by this shear matrix.
     /// @param p Point of shearing as reference.
@@ -124,8 +124,8 @@ namespace glm
 
     /// Build a right handed look at view matrix.
 	///
-	/// @param eye Position of the camera
-	/// @param center Position where the camera is looking at
+	/// @param eye posicaoCamera of the camera
+	/// @param center posicaoCamera where the camera is looking at
 	/// @param up Normalized up vector, how the camera is oriented. Typically (0, 0, 1)
 	///
 	/// @tparam T A floating-point scalar type
@@ -138,8 +138,8 @@ namespace glm
 
 	/// Build a left handed look at view matrix.
 	///
-	/// @param eye Position of the camera
-	/// @param center Position where the camera is looking at
+	/// @param eye posicaoCamera of the camera
+	/// @param center posicaoCamera where the camera is looking at
 	/// @param up Normalized up vector, how the camera is oriented. Typically (0, 0, 1)
 	///
 	/// @tparam T A floating-point scalar type
@@ -152,8 +152,8 @@ namespace glm
 
 	/// Build a look at view matrix based on the default handedness.
 	///
-	/// @param eye Position of the camera
-	/// @param center Position where the camera is looking at
+	/// @param eye posicaoCamera of the camera
+	/// @param center posicaoCamera where the camera is looking at
 	/// @param up Normalized up vector, how the camera is oriented. Typically (0, 0, 1)
 	///
 	/// @tparam T A floating-point scalar type
