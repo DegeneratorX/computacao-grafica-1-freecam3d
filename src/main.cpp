@@ -2,8 +2,6 @@
 #include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #include <cg1/shader.h>
 #include <cg1/camera.h>
@@ -77,16 +75,16 @@ void processInput(GLFWwindow *window){
 
     // Se o usuário apertar WASD, movimenta a câmera
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-        camera.movimentacaoTecla(FORWARD, deltaFrame);
+        camera.movimentacaoTeclado(FORWARD, deltaFrame);
     }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-        camera.movimentacaoTecla(BACKWARD, deltaFrame);
+        camera.movimentacaoTeclado(BACKWARD, deltaFrame);
     }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-        camera.movimentacaoTecla(LEFT, deltaFrame);
+        camera.movimentacaoTeclado(LEFT, deltaFrame);
     }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-        camera.movimentacaoTecla(RIGHT, deltaFrame);
+        camera.movimentacaoTeclado(RIGHT, deltaFrame);
     }
 }
 
@@ -138,7 +136,9 @@ bool initGlad(){
     return true;
 }
 
-glm::mat4 perspective(float fov, float aspectRatio, float nearZ, float farZ) {
+// Proj Perspectiva
+// ----------------
+glm::mat4 perspectiva(float fov, float aspectRatio, float nearZ, float farZ) {
     glm::mat4 projecao(1.0f);
 
     float tgMetadeFov = std::tan(fov / 2.0f);
@@ -154,6 +154,8 @@ glm::mat4 perspective(float fov, float aspectRatio, float nearZ, float farZ) {
     return projecao;
 }
 
+// Método para não bagunçar a main, carrega texturas
+// -----------------------------------------------
 void loadTexture(const char* path, bool canalAlfa = true){
     int largura, altura, nrChannels;
     stbi_set_flip_vertically_on_load(true);
@@ -192,8 +194,8 @@ int main(){
 
     // Inicializa os shaders (um para objetos que recebem uma fonte de luz e outro pro cubo que emite luz (não recebe luz)
     // -------------------------------------------------------------------------------------------------------------------
-    Shader lightingShader("../src/shader_padrao.vs", "../src/shader_padrao.fs");
-    Shader lightCubeShader("../src/shader_emissorluz.vs", "../src/shader_emissorluz.fs");
+    Shader shaderComum("../src/shader_padrao.vs", "../src/shader_padrao.fs");
+    Shader shaderCuboBranco("../src/shader_emissorluz.vs", "../src/shader_emissorluz.fs");
 
     // Vértices (coluna 0 a 2), Normais (coluna 3 a 5) e Textura (coluna 6 e 7) para qualquer cubo
     // Lembrar que qualquer cubo reaproveita esse array aqui, e ocorre transformação linear em cimaCamera
@@ -250,7 +252,7 @@ int main(){
     // VAO = Vertex Array Object — É uma variável que encapsula os vértices por uso de referência (ponteiro).
     // EBO = Element Buffer Objects — Serve para tratar objetos complexos como quadrado para dividir em 2 triângulos
     // Aqui estou inicializando o VBO, o VAO e o EBO. Precisa bindar o VAO primeiro, e os métodos precisam estar
-    // nessa ordem.
+    // nessa ordem. (Depreciei o EBO)
     //-------------------------------------------------------------------------------------------------------------
     unsigned int VBO, VAOcuboNormal, EBO;
     glGenVertexArrays(1, &VAOcuboNormal);
@@ -274,7 +276,7 @@ int main(){
     // O cubo de luz usa o mesmo array de vertices (pois também é um cubo), e para qualquer cubo, irá utilizar aquele array
     unsigned int VAOCuboEmissorLuz; // Porém, o VAO é diferente, pois a forma que o objeto recebe iluminação é diferente
 
-    // Faço a mesma coisa que o cubo normal, só não faço ponteiro pra normal, pois ele usa outro shader (não receberá iluminação).
+    // Faço a mesma coisa que o cubo normal, só não faço ponteiro pra normal, pois ele usa outro shader (não receberá iluminação, e será uma cor sólida).
     glGenVertexArrays(1, &VAOCuboEmissorLuz);
     glBindVertexArray(VAOCuboEmissorLuz);
 
@@ -284,11 +286,12 @@ int main(){
 
     // Texturas
     // --------
-    unsigned int texAsfalto, texCalcada, texPredio,  texPorta, texArvore;
+    unsigned int texAsfalto, texCalcada, texWindow,  texPorta, texFolhas, texTronco;
 
     // Textura do asfalto
     // ------------------
     glGenTextures(1, &texAsfalto);
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texAsfalto);
 
     // Propriedades das texturas
@@ -302,6 +305,7 @@ int main(){
     // Textura da calçada
     // ------------------
     glGenTextures(1, &texCalcada);
+    glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, texCalcada);
 
     // Propriedades das texturas
@@ -310,17 +314,74 @@ int main(){
     // Filtro das texturas
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    loadTexture("../resources/textures/concreto.png", false);
+    loadTexture("../resources/textures/concreto.png", true);
+
+    // Textura da janela do prédio
+    // ---------------------------
+    glGenTextures(1, &texWindow);
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_2D, texWindow);
+
+    // Propriedades das texturas
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // Filtro das texturas
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    loadTexture("../resources/textures/window.jpg", false);
+
+    // Textura da porta do prédio
+    // --------------------------
+    glGenTextures(1, &texPorta);
+    glActiveTexture(GL_TEXTURE3);
+    glBindTexture(GL_TEXTURE_2D, texPorta);
+
+    // Propriedades das texturas
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // Filtro das texturas
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    loadTexture("../resources/textures/porta.jpg", false);
+
+    // Textura da folha da árvore
+    // --------------------------
+    glGenTextures(1, &texFolhas);
+    glActiveTexture(GL_TEXTURE4);
+    glBindTexture(GL_TEXTURE_2D, texFolhas);
+
+    // Propriedades das texturas
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // Filtro das texturas
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    loadTexture("../resources/textures/leaves.jpg", false);
+
+    // Textura do tronco da árvore
+    // ---------------------------
+    glGenTextures(1, &texTronco);
+    glActiveTexture(GL_TEXTURE5);
+    glBindTexture(GL_TEXTURE_2D, texTronco);
+
+    // Propriedades das texturas
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // Filtro das texturas
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    loadTexture("../resources/textures/log.jpg", false);
+
 
     // Modo Wireframe (para visualizar os triângulos)
     if (wireframe) {
         glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
     }
 
-    lightingShader.use();
-    lightingShader.setInt("texAsfalto", 0);
-    lightingShader.setInt("texCalcada", 1);
+    shaderComum.use();
 
+    float rotacao = 0.0f;
+    float movimento = 0.0f; float velocidadeMovimento = 0.05f;
     // Loop do "jogo"
     // --------------
     while (!glfwWindowShouldClose(window))
@@ -349,45 +410,118 @@ int main(){
         glBindVertexArray(VAOcuboNormal);
 
         // Ativo o shader para objetos normais e mando propriedades para o fragment shader de objetos normais
-        lightingShader.use();
-        lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f); // Cor do objeto
-        lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f); // Cor da luz
-        lightingShader.setVec3("lightPos", 1.2f, 1.0f, 2.0f); // Posição da luz
-        lightingShader.setVec3("viewPos", camera.posicaoCamera); // Coordenadas de câmera
+        shaderComum.use();
+        shaderComum.setVec3("objectColor", 1.0f, 0.5f, 0.31f); // Cor do objeto
+        shaderComum.setVec3("lightColor", 1.0f, 1.0f, 1.0f); // Cor da luz
+        shaderComum.setVec3("lightPos", -3.0f, 3.0f, movimento); // Posição da luz
+        shaderComum.setVec3("viewPos", camera.posicaoCamera); // Coordenadas de câmera
 
         // mando as propriedades de câmera e perspectiva para o vertex shader de objetos normais
-        glm::mat4 projection = perspective(glm::radians(camera.fovCamera), (float)LARGURA_TELA / (float)ALTURA_TELA, 0.1f, 100.0f);
+        glm::mat4 projection = perspectiva(glm::radians(camera.fovCamera), (float)LARGURA_TELA / (float)ALTURA_TELA, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
 
-        lightingShader.setMat4("projection", projection);
-        lightingShader.setMat4("view", view);
+        shaderComum.setMat4("projection", projection);
+        shaderComum.setMat4("view", view);
 
         // Transformação do asfalto
+        shaderComum.setInt("textura", 0);
         glm::mat4 model = glm::mat4(1.0f);
         model = Transformacoes::translacao(model, glm::vec3(0.0f, -1.0f, 2.0f));
         model = Transformacoes::escala(model, glm::vec3(3.0f, 0.1f, 20.0f));
-        lightingShader.setMat4("model", model);
+        shaderComum.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
-        // Transformação da calçada
+        // Transformação da calçada 1
+        shaderComum.setInt("textura", 1);
         model = glm::mat4(1.0f);
-        model = Transformacoes::translacao(model, glm::vec3(3.0f, -1.0f, 2.0f));
-        model = Transformacoes::escala(model, glm::vec3(3.0f, 0.2f, 20.0f));
-        lightingShader.setMat4("model", model);
+        model = Transformacoes::translacao(model, glm::vec3(5.0f, -1.0f, 2.0f));
+        model = Transformacoes::escala(model, glm::vec3(7.0f, 0.2f, 20.0f));
+        shaderComum.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
-        // Ativo o shader para objetos luminosos e mando propriedades para o fragment shader de objetos que emitem luz
-        lightCubeShader.use();
+        // Transformação da calçada 2
+        shaderComum.setInt("textura", 1);
+        model = glm::mat4(1.0f);
+        model = Transformacoes::translacao(model, glm::vec3(-5.0f, -1.0f, 2.0f));
+        model = Transformacoes::escala(model, glm::vec3(7.0f, 0.2f, 20.0f));
+        shaderComum.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        // Transformação do prédio
+        shaderComum.setInt("textura", 2);
+        model = glm::mat4(1.0f);
+        model = Transformacoes::translacao(model, glm::vec3(5.0f, 1.0f, 2.0f));
+        model = Transformacoes::escala(model, glm::vec3(3.0f, 7.0f, 3.0f));
+        shaderComum.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        // Transformação da porta
+        shaderComum.setInt("textura", 3);
+        model = glm::mat4(1.0f);
+        model = Transformacoes::translacao(model, glm::vec3(3.5f, 0.0f, 2.0f));
+        model = Transformacoes::escala(model, glm::vec3(0.1f, 2.0f, 1.0f));
+        model = Transformacoes::rotacaoY(model, 90.0);
+        shaderComum.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        // Transformação das folhas 1
+        shaderComum.setInt("textura", 4);
+        model = glm::mat4(1.0f);
+        model = Transformacoes::translacao(model, glm::vec3(3.5f, 2.0f, -2.0f));
+        model = Transformacoes::escala(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        shaderComum.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        // Transformação das folhas 2
+        shaderComum.setInt("textura", 4);
+        model = glm::mat4(1.0f);
+        model = Transformacoes::translacao(model, glm::vec3(3.5f, 2.0f, 6.0f));
+        model = Transformacoes::escala(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        model = Transformacoes::rotacaoY(model, 45);
+        shaderComum.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        // Transformação do tronco 1
+        shaderComum.setInt("textura", 5);
+        model = glm::mat4(1.0f);
+        model = Transformacoes::translacao(model, glm::vec3(3.5f, -1.0f, -2.0f));
+        model = Transformacoes::escala(model, glm::vec3(0.1f, 6.0f, 0.1f));
+        model = Transformacoes::rotacaoY(model, 45);
+        shaderComum.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        // Transformação do tronco 2
+        shaderComum.setInt("textura", 5);
+        model = glm::mat4(1.0f);
+        model = Transformacoes::translacao(model, glm::vec3(3.5f, -1.0f, 6.0f));
+        model = Transformacoes::escala(model, glm::vec3(0.1f, 6.0f, 0.1f));
+        model = Transformacoes::rotacaoY(model, 45);
+        shaderComum.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        // Transformação do poste
+        shaderComum.setInt("textura", 0);
+        model = glm::mat4(1.0f);
+        model = Transformacoes::translacao(model, glm::vec3(-3.0f, 1.0f, movimento));
+        model = Transformacoes::escala(model, glm::vec3(0.1f, 4.0f, 0.1f));
+        shaderComum.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+        // Ativo o shader para objetos luminosos e mando propriedades para o fragment shader de objetos que não recebe luz (cubo branco)
+        shaderCuboBranco.use();
 
         // Faço a mesma coisa e uso as mesmas propriedades de vertex shader de objetos normais
         glBindVertexArray(VAOCuboEmissorLuz);
-        lightCubeShader.setMat4("projection", projection);
-        lightCubeShader.setMat4("view", view);
+        shaderCuboBranco.setMat4("projection", projection);
+        shaderCuboBranco.setMat4("view", view);
         model = glm::mat4(1.0f);
-        model = Transformacoes::translacao(model, glm::vec3(1.2f, 1.0f, 2.0f));
-        model = Transformacoes::escala(model, glm::vec3(0.2f));
-        model = Transformacoes::rotacaoX(model, 45);
-        lightCubeShader.setMat4("model", model);
+        model = Transformacoes::translacao(model, glm::vec3(-3.0f, 3.0f, movimento));
+        model = Transformacoes::escala(model, glm::vec3(0.5f, 0.8f, 0.5f));
+        model = Transformacoes::rotacaoX(model, rotacao);
+        model = Transformacoes::rotacaoY(model, rotacao);
+        model = Transformacoes::rotacaoZ(model, rotacao);
+        shaderCuboBranco.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
 
@@ -395,6 +529,16 @@ int main(){
         // ----------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
+        rotacao += 1.0f;
+        if (rotacao == 360.0f){
+            rotacao = 0.0f;
+        }
+
+        movimento += velocidadeMovimento; // Atualiza o movimento do poste
+        // Se ele chega no limite, volta
+        if (movimento > 10.0f || movimento < -7.0f) {
+            velocidadeMovimento *= -1;
+        }
     }
 
     // Dá um "free" nos VAOs e no VBO no término do programa

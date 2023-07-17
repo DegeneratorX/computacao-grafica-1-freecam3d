@@ -17,7 +17,7 @@ const float TILT             = -90.0f;
 const float PITCH            =  0.0f;
 const float VELOCIDADE       =  2.5f;
 const float SENSIBILIDADE    =  0.1f;
-const float FOV             =  45.0f;
+const float FOV              =  65.0f;
 
 
 
@@ -46,7 +46,7 @@ public:
 
     // Transformação linear de câmera usando teclado (translação apenas)
     // -----------------------------------------------------------------
-    void movimentacaoTecla(int direcao, float deltaFrame){
+    void movimentacaoTeclado(int direcao, float deltaFrame){
         float velocidade = velocidadeCamera * deltaFrame;
         if (direcao == FORWARD)
             posicaoCamera += frenteCamera * velocidade;
@@ -85,8 +85,8 @@ public:
         fovCamera -= (float)yoffset;
         if (fovCamera < 1.0f)
             fovCamera = 1.0f; // Limite para o fov
-        if (fovCamera > 45.0f)
-            fovCamera = 45.0f;
+        if (fovCamera > 65.0f)
+            fovCamera = 65.0f;
     }
 
     // Retorna o lootAt da câmera
@@ -106,7 +106,7 @@ private:
         frenteCamera = glm::normalize(frente);
 
         // Calcula os vetores do lado direito e cima da câmera
-        direitaCamera = glm::normalize(glm::cross(frenteCamera, cimaMundo));  // normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+        direitaCamera = glm::normalize(glm::cross(frenteCamera, cimaMundo));
         cimaCamera    = glm::normalize(glm::cross(direitaCamera, frenteCamera));
     }
 
