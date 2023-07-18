@@ -9,6 +9,9 @@
 #include "stbimage/stb_image.h"
 #include "cg1/transformacoes.h"
 
+#include <chrono>
+#include <thread>
+
 #include <iostream>
 
 // MODO WIREFRAME
@@ -175,7 +178,28 @@ void loadTexture(const char* path, bool canalAlfa = true){
     stbi_image_free(data);
 }
 
+// Function to limit the frame rate to 60 FPS
+void limitFrameRate(std::chrono::time_point<std::chrono::steady_clock>& start)
+{
+    constexpr double targetFrameTime = 1.0 / 60.0;  // Target frame time for 60 FPS (in seconds)
+    std::chrono::duration<double> frameDuration = std::chrono::steady_clock::now() - start;
+
+    // Calculate the time remaining to reach the target frame time
+    double remainingTime = targetFrameTime - frameDuration.count();
+    if (remainingTime > 0)
+    {
+        // Sleep for the remaining time
+        std::this_thread::sleep_for(std::chrono::duration<double>(remainingTime));
+    }
+
+    start = std::chrono::steady_clock::now();  // Update the start time for the next frame
+}
+
 int main(){
+
+    // Auxiliar para limitar framerate a 60fps
+    std::chrono::time_point<std::chrono::steady_clock> start = std::chrono::steady_clock::now();
+
     // Verifica a inicialização do GLFL (OpenGL)
     // -----------------------------------------
     if (!initGLFW()){return -1;}
@@ -539,6 +563,7 @@ int main(){
         if (movimento > 10.0f || movimento < -7.0f) {
             velocidadeMovimento *= -1;
         }
+        limitFrameRate(start);
     }
 
     // Dá um "free" nos VAOs e no VBO no término do programa
